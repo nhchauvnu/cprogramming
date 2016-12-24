@@ -3,7 +3,8 @@
 #include <memory.h>
 
 #define MINE	'*'
-#define NOMINE	'0'
+#define ZERO	'0'
+#define NOMINE	'.'
 #define INCREASE(x)	{ if (x != MINE) x += 1; }
 
 // Vao: ma tran khu dat land, so hang m va so cot n
@@ -15,7 +16,7 @@ void printRecommend(char **cell, int m, int n)
 	mem = (char *)malloc((m+2)*(n+2)*sizeof(char));
 	rec = (char **)malloc((m+2)*sizeof(char *));
 	// Khoi dong: khong co min o bat ky o nao
-	memset(mem, NOMINE, (m+2)*(n+2));
+	memset(mem, ZERO, (m+2)*(n+2));
 	for (i=0;i<m+2;i++)
 		rec[i] = mem+i*(n+2);
 	for (i=1;i<m+1;i++)
@@ -77,7 +78,7 @@ int main(int argc, char *argv[])
 	for (i=0;i<m;i++) {
 		// Ngam dinh cac o khong co min
 		for (j=0;j<n;j++)
-			cell[i][j] = '.';
+			cell[i][j] = NOMINE;
 		if (fgets(buf, BUFSIZ, fp) != NULL)
 			for (j=0;j<n;j++)
 				cell[i][j] = buf[j];

@@ -3,7 +3,8 @@
 #include <memory.h>
 
 #define MINE	'*'
-#define NOMINE	'0'
+#define ZERO	'0'
+#define NOMINE	'.'
 #define INCREASE(x)	{ if (x != MINE) x += 1; }
 // Macro cap phat mang hai chieu co m hang n cot, kieu type
 #define ALLOC2D(x, m, n, type) {\
@@ -22,7 +23,7 @@ void printRecommend(char **cell, int m, int n)
 
 	ALLOC2D(rec, m+2, n+2, char)
 	// Khoi dong: khong co min o bat ky o nao
-	memset(rec[0], NOMINE, (m+2)*(n+2));
+	memset(rec[0], ZERO, (m+2)*(n+2));
 	for (i=1;i<m+1;i++)
 		for (j=1;j<n+1;j++)
 			if (cell[i-1][j-1] == MINE) {
@@ -77,7 +78,7 @@ int main(int argc, char *argv[])
 	for (i=0;i<m;i++) {
 		// Ngam dinh cac o khong co min
 		for (j=0;j<n;j++)
-			cell[i][j] = '.';
+			cell[i][j] = NOMINE;
 		if (fgets(buf, BUFSIZ, fp) != NULL)
 			for (j=0;j<n;j++)
 				cell[i][j] = buf[j];
