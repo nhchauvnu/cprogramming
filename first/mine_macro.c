@@ -3,8 +3,8 @@
 #include <memory.h>
 
 #define MINE	'*'
-#define ZERO	'0'
 #define NOMINE	'.'
+#define ZERO	'0'
 #define INCREASE(x)	{ if (x != MINE) x += 1; }
 // Macro cap phat mang hai chieu co m hang n cot, kieu type
 #define ALLOC2D(x, m, n, type) {\

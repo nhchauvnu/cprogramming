@@ -3,8 +3,8 @@
 #include <memory.h>
 
 #define MINE	'*'
-#define ZERO	'0'
 #define NOMINE	'.'
+#define ZERO	'0'
 #define INCREASE(x)	{ if (x != MINE) x += 1; }
 
 // Vao: ma tran khu dat land, so hang m va so cot n
