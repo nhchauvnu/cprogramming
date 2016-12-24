@@ -1,0 +1,7 @@
+while [ $# -gt 0 ]; do
+	fullname="$1"
+	out=${fullname%\.c}
+	echo gcc "$fullname" -o "$out" -lm
+	gcc "$fullname" -o "$out" -lm
+	shift
+done
